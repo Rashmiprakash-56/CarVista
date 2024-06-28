@@ -19,7 +19,7 @@ function Home() {
   const fetchCarforSell = async () => {
     try {
       const response = await axios.get("/api/cars/buy");
-      setCarList(response.data);
+      setCarList(Array.isArray(response.data) ? response.data : []);
     } catch (err) {
       console.error("Error fetching cars:", err);
     }
