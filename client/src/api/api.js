@@ -9,6 +9,7 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
   const state = store.getState();
   const token = state.auth.token;
+  console.log('Interceptor token:', token);
   if (token) {
     config.headers['x-auth-token'] = token;
   }
