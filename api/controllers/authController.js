@@ -23,7 +23,7 @@ export const register = async (req, res) => {
 
     const token = jwt.sign(payload, jwtSecret, { expiresIn: '1d' });
 
-    res.cookie('token', token, { httpOnly: true, secure: false, sameSite: 'Strict' });
+    res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'None' });
     res.status(201).json({ msg: 'User registered successfully' });
   } catch (error) {
     console.error(error.message);
@@ -50,7 +50,7 @@ export const login = async (req, res) => {
 
     const token = jwt.sign(payload, jwtSecret, { expiresIn: '1d' });
 
-    res.cookie('token', token, { httpOnly: true, secure: false, sameSite: 'Strict' });
+    res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'None' });
     res.status(200).json({ msg: 'User logged in successfully',token });
   } catch (error) {
     console.error(error.message);
