@@ -9,10 +9,12 @@ const authSlice = createSlice({
   },
   reducers: {
     setToken: (state, action) => {
+      console.log('Setting token:', action.payload); 
       state.token = action.payload;
       state.isLoggedIn = true;
     },
     clearToken: (state) => {
+      console.log('Clearing token');
       state.token = null;
       state.isLoggedIn = false;
     },
